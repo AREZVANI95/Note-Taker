@@ -5,14 +5,14 @@ const {
     data
 } = require("../../Develop/db/db.json")
 
-// router.get("/api/notes", function (req, res) {
-//     fs.readFile(__dirname + "../../Develop/db/db.json", (err, data) => {
-//         if (err) throw err;
-//         res.json(JSON.parse(data));
-//         console.log("hello");
-//     });
+router.get("/notes.html", function (req, res) {
+    fs.readFile(__dirname + "../../Develop/db/db.json", (err, data) => {
+        if (err) throw err;
+        res.json(JSON.parse(data));
+        console.log("hello");
+    });
 
-// });
+});
 
 // router.post('/api/notes', (req, res) => {
 
