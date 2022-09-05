@@ -14,10 +14,10 @@ Application will attempt to let you write down notes that the user wishes to jog
 (work in progress) I am inadequate to be able to make the application save the users work much less display the db.json file.
 
 ## Static IMG:
-![Displaying-Code](Public/assets/img/Static-Page.PNG)
+![Displaying-Code](public/assets/img/Static-Page.PNG)
 
 ## IMG in Action:
-![Code-Presentation](Public/assets/img/Example-Notepad.PNG)
+![Code-Presentation](public/assets/img/Example-Notepad.PNG)
 
 ## Heroku Deployment:
 - https://note-taker-module-challenge-11.herokuapp.com
