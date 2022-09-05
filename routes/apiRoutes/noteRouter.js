@@ -1,29 +1,33 @@
 // Required
 const fs = require("fs");
 const router = require('express').Router();
-const {
-    data
-} = require("../../Develop/db/db.json")
+const { db } = require("../../db/db.json")
 
-router.get("/notes.html", function (req, res) {
-    fs.readFile(__dirname + "../../Develop/db/db.json", (err, data) => {
+router.get("/api/notes", function (req, res) {
+    fs.readFile(__dirname + "../../db/db.json", (err, data) => {
         if (err) throw err;
         res.json(JSON.parse(data));
-        console.log("hello");
+        console.log(data);
     });
 
 });
 
-// router.post('/api/notes', (req, res) => {
-
-//     req.body.id = note.length.toString();
-
-//     if (!validateAnimal(req.body)) {
-//         res.status(400).send('The animal is not properly formatted.');
-//     } else {
-//         const animal = addNote(req.body, animals);
-//         res.json(animal);
-//     }
-// });
+router.post("/api/notes", function (req, res) {
+    let everyNotes = [];
+    let generatedNotes = {
+        title: req.body.title,
+        text: req.body.text 
+    }
+    fs.readFile(__dirname + "../../db/db.json", (err, data) => {
+        if (err) throw err;
+        everyNotes = JSON.parse(data);
+        everyNotes.push(generatedNotes);
+        fs.writeFileSync(__dirname + "../../db/db.json", JSON.stringify({everyNotes}), (err) => {
+            if (err) throw err;
+            console.log("Note Succesfully Saved.")
+            res.end();
+        })
+    })
+});
 
 module.exports = router;
